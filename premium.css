@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* --- Global Reset & Typography --- */
+:root {
+    --gold: #C5A059;
+    --dark-gold: #9A7B3E;
+    --charcoal: #1A1A1A;
+    --off-white: #FAFAFA;
+    --text-gray: #4B5563;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+    font-family: 'Lato', sans-serif !important;
+    color: var(--charcoal) !important;
+    background-color: var(--off-white) !important;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 700;
+    color: var(--charcoal);
+    letter-spacing: -0.5px;
+}
+
+h1 { text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+
+/* --- Enhanced Navbar (Glassmorphism) --- */
+.navbar {
+    background: rgba(26, 26, 26, 0.95) !important; /* Almost opaque dark background */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.navbar-logo a {
+    color: #fff !important;
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.navbar-links a {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-family: 'Lato', sans-serif !important;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 0.9rem !important;
+    letter-spacing: 1.5px;
+    border-radius: 0 !important; /* Remove generic border radius */
+    padding: 10px 15px !important;
+    position: relative;
+}
+
+.navbar-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 5px;
+    left: 50%;
+    background-color: var(--gold);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+.navbar-links a:hover {
+    color: var(--gold) !important;
+    background-color: transparent !important;
+}
+
+.navbar-links a:hover::after {
+    width: 80%;
+}
+
+.navbar-toggle {
+    color: #fff !important;
+}
+
+/* --- Premium Buttons --- */
+.button, button[type="submit"], .view-more {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%) !important;
+    color: #fff !important;
+    padding: 1rem 2.5rem !important;
+    border-radius: 2px !important; /* Sharper corners for elegance */
+    font-family: 'Lato', sans-serif !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+    transition: var(--transition) !important;
+    cursor: pointer;
+}
+
+.button:hover, button[type="submit"]:hover, .view-more:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(197, 160, 89, 0.5);
+    background: linear-gradient(135deg, #d4af65 0%, #ad8a46 100%) !important;
+}
+
+/* --- Hero Section Refinements --- */
+/* Ensure hero text is legible and elegant */
+header.hero, header.about-hero, header.page-header, .hero {
+    position: relative;
+}
+
+/* Overlay gradient for better text contrast */
+header.hero::before, header.about-hero::before, header.page-header::before, .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%);
+    z-index: 1;
+}
+
+header.hero > div, header.about-hero > div, header.page-header > div, .hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+header.hero p, header.about-hero p, header.page-header p {
+    font-size: 1.25rem !important;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Cards (Menu, Testimonials, Chefs, etc.) --- */
+.menu-item, .testimonial-card, .chef-card, .value-card, .award-card, .press-card, .gallery-item, .dish-card, .culture-section {
+    background: #fff;
+    border-radius: 4px !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Subtle shadow */
+    transition: var(--transition) !important;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.menu-item:hover, .testimonial-card:hover, .chef-card:hover, .value-card:hover, .award-card:hover, .press-card:hover, .gallery-item:hover, .dish-card:hover, .culture-section:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Specific Card Tweaks */
+.menu-price, .price {
+    color: var(--dark-gold) !important;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 1.4rem !important;
+    font-weight: 700;
+}
+
+.testimonial blockquote, .testimonial-text {
+    font-style: italic;
+    font-family: 'Playfair Display', serif !important;
+    color: var(--text-gray);
+    font-size: 1.1rem;
+}
+
+.testimonial img, .testimonial-avatar {
+    border: 3px solid var(--gold);
+}
+
+/* --- Section Headers --- */
+h2 {
+    text-align: center;
+    font-size: 2.5rem !important;
+    margin-bottom: 3rem !important;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--gold);
+    margin: 1rem auto 0;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--charcoal) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 0.9rem;
+    border-top: 5px solid var(--gold);
+    padding: 3rem 2rem !important;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- Animations --- */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero > div, .about-hero > div, .section, .menu-grid, .testimonials-grid, .form-container {
+    animation: fadeInSlideUp 1s ease-out forwards;
+}
+
+/* --- Form Inputs --- */
+.form-input {
+    border: 1px solid #e5e7eb;
+    padding: 1rem !important;
+    border-radius: 2px !important;
+    font-family: 'Lato', sans-serif !important;
+    transition: var(--transition);
+    background-color: #fff;
+}
+
+.form-input:focus {
+    border-color: var(--gold) !important;
+    box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1) !important;
+    outline: none;
+}
+
+/* --- Culture Navigation (Menu.html) --- */
+.culture-nav {
+    background: #fff !important;
+    border-bottom: 1px solid #eee;
+}
+
+.culture-nav a {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.culture-nav a:hover {
+    background: var(--gold) !important;
+    color: #fff !important;
+}
